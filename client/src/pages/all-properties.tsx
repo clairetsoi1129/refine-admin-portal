@@ -5,15 +5,10 @@ import { Typography, Box, Stack, TextField, Select, MenuItem } from '@mui/materi
 import { useNavigate } from 'react-router-dom';
 
 import {PropertyCard, CustomButton} from 'components'
+import { Property } from 'interfaces/common';
 // import {PropertyProps} from 'interfaces/common';
 
-interface Property {
-  _id: string;
-  title: string;
-  price: number;
-  location: string;
-  photo: string;
-}
+
 
 const AllProperties = () => {
   const navigate = useNavigate();
@@ -60,7 +55,7 @@ const AllProperties = () => {
       <Box mt="20px" sx={{display: 'flex', flexWrap: 'wrap', gap: 3}}>
         <Stack direction="column" width="100%">
           <Typography fontSize={25} fontWeight={700} color="#11142D">
-            {!allProperties.length ? 'There are no properties': 'All Properties'}</Typography>
+            {allProperties.length  === 0 ? 'There are no properties': 'All Properties'}</Typography>
 
             <Box mb={2} mt={3} display="flex" width="84%" justifyContent="space-between" flexWrap="wrap">
               <Box display="flex" gap={2} flexWrap="wrap" mb={{xs: '20px', sm: 0}}>

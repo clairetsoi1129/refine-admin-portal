@@ -4,12 +4,34 @@ import { Typography, Box, Stack, TextField, Select, MenuItem } from '@mui/materi
 import {AgentCard} from 'components';
 
 const Agent = () => {
-  const {data, isLoading, isError} = useList({});
+  const {data, isLoading, isError} = useList({
+    resource: 'users',
+  });
 
   const allAgents = data?.data;
 
+  console.log(allAgents);
+
+  if (isLoading) {return <div>loading...</div>}
+  if (isError) {return <div>error...</div>}
+
+
   return (
-    <div>agent</div>
+    <Box>
+      <Typography fontSize={25} fontWeight={700} color="#11142d">Agents list</Typography>
+      <Box mt="20px" sx={{display:'flex',flexWrap:'wrap',gap:'20px',backgroundColor:'#fcfcfc'}}>
+        {allAgents?.map((agent) => (
+          <AgentCard
+            key={agent._id}
+            id={agent._id}
+            name={agent.name}
+            email={agent.email}
+            avatar={agent.avatar} 
+            noOfProperties={agent.allProperties.length}
+            />
+        ))}
+      </Box>
+    </Box>
   )
 }
 

@@ -37,3 +37,11 @@ export interface FormProps {
     onFinishHandler: (data: FieldValues) => Promise<void> | void,
     propertyImage: { name: string, url: string },
 }
+
+export interface Property {
+    _id: string;
+    title: string;
+    price: number;
+    location: string;
+    photo: string;
+  }

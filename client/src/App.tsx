@@ -182,15 +182,12 @@ function App() {
                   show: PropertyDetails,
                   create: CreateProperty,
                   edit: EditProperty,
-                  // delete: DeleteProperty,
                   icon: <VillaOutlined />,
                 },
                 {
                   name: "agents",
                   list: Agents,
                   show: AgentProfile,
-                  // create: CreateAgent,
-                  // edit: EditAgent,
                   icon: <PeopleAltOutlined />,
                 },
                 {
@@ -261,22 +258,13 @@ function App() {
                     <Route path="create" element={<CreateProperty />} />
                     <Route path="show/:id" element={<PropertyDetails />} />
                     <Route path="edit/:id" element={<EditProperty />} />
-                    {/* <Route path="delete/:id" element={<DeleteProperty />} /> */}
                   </Route>
                   <Route path="/agents">
                     <Route index element={<Agents />} />
+                    <Route path="show/:id" element={<AgentProfile />} />
                   </Route>
-                  <Route path="/blog-posts">
-                    <Route index element={<BlogPostList />} />
-                    <Route path="create" element={<BlogPostCreate />} />
-                    <Route path="edit/:id" element={<BlogPostEdit />} />
-                    <Route path="show/:id" element={<BlogPostShow />} />
-                  </Route>
-                  <Route path="/categories">
-                    <Route index element={<CategoryList />} />
-                    <Route path="create" element={<CategoryCreate />} />
-                    <Route path="edit/:id" element={<CategoryEdit />} />
-                    <Route path="show/:id" element={<CategoryShow />} />
+                  <Route path="/my-profile">
+                    <Route index element={<MyProfile />} />
                   </Route>
                   <Route path="*" element={<ErrorComponent />} />
                 </Route>
