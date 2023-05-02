@@ -49,6 +49,7 @@ import { MuiInferencer } from "@refinedev/inferencer/mui";
 import { AccountCircleOutlined, ChatBubbleOutlined, PeopleAltOutlined, StarOutlineRounded, VillaOutlined } from "@mui/icons-material";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 
+const baseUrl = process.env.REACT_APP_BACKEND_BASE_URL;
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
   const token = localStorage.getItem("token");
@@ -70,7 +71,7 @@ function App() {
 
       // Save user to MongoDB
       if (profileObj) {
-        const response = await fetch('http://localhost:8080/api/v1/users', {
+        const response = await fetch(`${baseUrl}/users`, {
           method: 'POST',
           headers: {'Content-Type':'application/json'},
           body: JSON.stringify({
@@ -166,7 +167,7 @@ function App() {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
             <Refine
-              dataProvider={dataProvider("http://localhost:8080/api/v1")}
+              dataProvider={dataProvider(`${baseUrl}`)}
               notificationProvider={notificationProvider}
               routerProvider={routerBindings}
               authProvider={authProvider}
