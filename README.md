@@ -1,13 +1,13 @@
 # refine-admin-portal
 ## Introduction
-This application is a fully functional full-stack MERN application with complete CRUD functionalities, authentication, pagination, sorting, filtering. It is 
+This application is a fully functional full-stack MERN application with complete CRUD functionalities, authentication, pagination, sorting, filtering.
 
 ## Technology
-MongoDB (Mongoose), Express.js, React.js with Refine and Material UI, Node.js, Typescript. 
+MongoDB (Mongoose) as database, React.js with Refine and Material UI and Typescript as frontend, Node.js with ExpressJS framework as backend.
 
 ## Feature
 1. It supports user login using Google Auth
-2. It has a fully functional dashboard generating with apexcharts
+2. It has a fully functional dashboard generating with apexcharts. 
 3. It has property management page with CRUD functionalities
 
 ## Pre-requiste for development
@@ -59,36 +59,12 @@ npm init -y
 npm install cloudinary cors dotenv express mongoose nodemon
 ```
 
-> install webpack
-```
-npm install webpack webpack-cli --save-dev
-```
-
-## How to deploy to Google Cloud
-
-> For Server (Node.js)
-```
-
-gcloud config set project yariga-385216
-git clone https://github.com/clairetsoi1129/refine-admin-portal.git
-
-
-1. Clone your repository into your home directory:
-git clone https://github.com/username/reponame.git
-2. Change into your repo directory: cd reponame
-3. Install the dependencies: npm install
-4. Set environmental variables with an app.yaml file: touch app.yaml
-5. Run build (if needed): npm run <build script name>
-6. Make sure your package.json has a working start script
-7. Preview your app
-8. Deploy: gcloud app deploy
-
-```
+## Future thoughts
+1. Currently the chart data is hard coded, future thoughts is to use node.js to build REST API to provide the chart data.
 
 
 ## Reference
 The code here is basically following the tutorial in JavaScript Mastery https://www.youtube.com/watch?v=k4lHXIzCEkM with below changes.
 
-1. Since Refine 4.14.0 has quite a lot of difference from Refine 3.X.X as described in the tutorial, I used swizzle command in refine to customize the components. 
+1. Since Refine 4.14.0 has quite a lot of difference from Refine 3.X.X as described in the tutorial, I used swizzle command in refine to generate the missing compoents and do the customization. 
 2. Also, the Refine 4.14.0 has changed a lot of library, so the import statement is also updated followed the documentation in Refine. 
-3. 
